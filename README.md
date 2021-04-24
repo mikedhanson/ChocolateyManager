@@ -1,0 +1,2 @@
+# ChocolateyManager
+Manage Chocolatey 

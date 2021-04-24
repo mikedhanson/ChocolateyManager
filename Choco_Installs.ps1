@@ -1,18 +1,20 @@
 <#
 .SYNOPSIS
-Short description
+SLoops through txt file and installs apps 
 
 .DESCRIPTION
 Long description
 
 .EXAMPLE
-An example
+.\Choco_installs.ps1
 
 .NOTES
-General notes
+Author: Michael Hanson
+Date: 4/24/21
 #>
 
-$Apps = Get-Content -Path "$(Get-Location)\ChocolateyApps.txt"
+$Apps = Get-Content -Path "$(Get-Location)\ChocolateyApps"
+
 $PackageName = "ChocolateyManager"
 $ChocoManagerPath = "C:\Users\$env:USERNAME\Appdata\Local"
 $logFile = "$ChocoManagerPath\$PackageName\log.txt"
@@ -46,16 +48,17 @@ if (-not (Test-Path $env:ChocolateyInstall)) {
 }
 
 
-foreach ($app in $apps){
-    Write-Host -ForegroundColor Yellow "Installing $app"
+foreach ($App in $Apps){
+
+    Write-Host -ForegroundColor Yellow "Installing $App"
     try {
-        $InstallOutput = choco install $app -y
-        $message = "`n Installing $app" - $InstallOutput
+        $InstallOutput = choco Install $App -y
+        $message = "`n Installing $App" + $InstallOutput
         $message | Out-File -FilePath $logFile -Force -Append
     }
     catch {
-        $message = "Failed to install $app"
-        Write-Host $message
+        $message = "Failed to install $App Error: $_"
+        Write-Host -ForegroundColor Red $message
         $message | Out-File -FilePath $logFile -Force -Append
     }
 }

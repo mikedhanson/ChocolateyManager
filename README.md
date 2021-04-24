@@ -1,6 +1,9 @@
 # ChocolateyManager
 Manage Chocolatey 
 
+![image](https://user-images.githubusercontent.com/15201245/115968220-6188c800-a4fc-11eb-9d2b-e2f101d1112c.png)
+
+
 ## Why? 
 I was tired of manually running chocolatey updates.
 

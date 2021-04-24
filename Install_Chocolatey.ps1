@@ -15,4 +15,8 @@ if ($env:ChocolateyInstall) {
     $message | Out-File -FilePath $logFile -Force -Append 
 }else {
     invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    Start-Process powershell.exe
+    exit
 }
+
+Write-Host "Log can be found here: $logFile"

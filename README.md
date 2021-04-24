@@ -27,11 +27,13 @@ Install_chocolatey.ps1
 ## How to use
 
 ```
-1. Install chocolatey - .\InstallChocolatey.ps1
+Set-ExecutionPolicy RemoteSigned -Force 
+
+1. Install chocolatey - .\Install_Chocolatey.ps1
 2. Open a new powershell window as admin
 3. Update the apps file
-4. Run .\ChocoInstallApps.ps1
-5. 
+4. Run .\Choco_installs.ps1
+5. Run .\Chco_CreateScheduledTask.ps1
 
 ```
 

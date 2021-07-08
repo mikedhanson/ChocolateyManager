@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-SLoops through txt file and installs apps 
+Loops through txt file and installs apps 
 
 .DESCRIPTION
 Long description

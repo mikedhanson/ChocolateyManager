@@ -20,7 +20,7 @@ $TaskName = "ChocoUpdateApps"
 $PackageName = "ChocolateyManager"
 $ChocoManagerPath = "C:\Users\$env:USERNAME\Appdata\Local"
 $logFile = "$ChocoManagerPath\$PackageName\log.txt"
-$ScriptName = "ChocoUpdateApps.ps1"
+$ScriptName = "Choco_Update.ps1"
 $FullScriptPath = "$(Get-location)\$ScriptName"
 
 if(!(Test-Path -Path "$ChocoManagerPath\$PackageName")){
@@ -45,7 +45,7 @@ catch {
 $DoesTaskExist = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
 
 if ( ! $DoesTaskExist ) {
-    $ActionArgs = '-windowstyle Hidden -File "C:\Users\' + $env:USERNAME + '\Appdata\Local\ChocolateyManager\Choco_Update.ps1"'
+    $ActionArgs = '-ExecutionPolicy Bypass -windowstyle Hidden -File "C:\Users\' + $env:USERNAME + '\Appdata\Local\ChocolateyManager\Choco_Update.ps1"'
     $Action = New-ScheduledTaskAction -Execute 'powershell' -Argument $ActionArgs
     $Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 8AM
     $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -ExecutionTimeLimit (New-TimeSpan -Minutes 45) -StartWhenAvailable

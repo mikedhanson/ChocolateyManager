@@ -36,7 +36,7 @@ Set-ExecutionPolicy RemoteSigned -Force
 2. Open a new powershell window as admin
 3. Update the apps file
 4. Run .\Choco_installs.ps1
-5. Run .\Chco_CreateScheduledTask.ps1
+5. Run .\Choco_CreateScheduledTask.ps1
 
 ```
 

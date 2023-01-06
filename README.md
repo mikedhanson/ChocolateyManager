@@ -3,7 +3,6 @@ Manage Chocolatey
 
 ![image](https://user-images.githubusercontent.com/15201245/115968220-6188c800-a4fc-11eb-9d2b-e2f101d1112c.png)
 
-
 ## Why? 
 I was tired of manually running chocolatey updates.
 
@@ -39,6 +38,10 @@ Set-ExecutionPolicy RemoteSigned -Force
 5. Run .\Choco_CreateScheduledTask.ps1
 
 ```
+
+If you run the update script from windows task scheduler you will get a nice toast message when your updater runs. 
+![image](https://user-images.githubusercontent.com/15201245/211106406-ebb7d695-2f24-4c03-8e25-9e0fc3eea3e4.png)
+
 
 ## Usage
 
